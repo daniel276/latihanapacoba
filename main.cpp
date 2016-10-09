@@ -2,6 +2,7 @@
 // modified by Bagus
 
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 // Function prototypes
@@ -9,24 +10,25 @@ void arrSelectSort(int *[], int);
 void showArray(const int [], int);
 void showArrPtr(int *[], int, string &);
 
-int main()
+int main2()
 {
-    const int NUM_DONATIONS = 15;
+    const int NUM_DONATIONS = 4;//15;
     string msgstr = "";
     // An array containing the donation amounts.
-    int donations[NUM_DONATIONS] = {5, 100, 5, 25, 10, 19, 5, 25, 5, 5, 100, 20, 10, 15, 10};
+    int donations[NUM_DONATIONS] = {5, 100, 5, 25};//, 10, 19, 5, 25, 5, 5, 100, 20, 10, 15, 10};
 
     // An array of pointers to int.
-    int *arrPtr[NUM_DONATIONS] = { nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,nullptr, nullptr, nullptr, nullptr, nullptr };
+    int *arrPtr[NUM_DONATIONS] = { nullptr, nullptr, nullptr, nullptr};//, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr,nullptr, nullptr, nullptr, nullptr, nullptr };
 
     // Each element of arrPtr is a pointer to int. Make each
     // element point to an element in the donations array.
     for (int count = 0; count < NUM_DONATIONS; count++)
         arrPtr[count] = &donations[count];
-    
+    //cout << donations << " " << donations[1] << "\n";
+    //cout << arrPtr << " " << *arrPtr << " " << arrPtr[1] << " " << *arrPtr[1] << "\n";
     // Sort the elements of the array of pointers.
     arrSelectSort(arrPtr, NUM_DONATIONS);
-    
+    //cout << arrPtr << " " << *arrPtr << " " << arrPtr[1] << " " << *arrPtr[1] << "\n";
     // Display the donations using the array of pointers. This
     // will display them in sorted order.
     cout << "The donations, sorted in ascending order are: \n";
